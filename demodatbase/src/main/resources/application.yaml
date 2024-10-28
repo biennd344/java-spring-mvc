@@ -1,0 +1,9 @@
+server:
+  port: 8000
+  servlet:
+      context-path: /indentity
+spring:
+  datasoure:
+    url: "jdbc:mysql://localhost:3306/indentity_sevice"
+    username: bin
+    password: binn
