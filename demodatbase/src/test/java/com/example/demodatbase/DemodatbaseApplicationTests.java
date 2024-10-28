@@ -1,10 +1,10 @@
-package com.bin.hello_spring_boot;
+package com.example.demodatbase;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HelloSpringBootApplicationTests {
+class DemodatbaseApplicationTests {
 
 	@Test
 	void contextLoads() {

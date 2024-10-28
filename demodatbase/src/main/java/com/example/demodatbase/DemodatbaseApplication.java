@@ -1,13 +1,13 @@
-package com.bin.hello_spring_boot;
+package com.example.demodatbase;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HelloSpringBootApplication {
+public class DemodatbaseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HelloSpringBootApplication.class, args);
+		SpringApplication.run(DemodatbaseApplication.class, args);
 	}
 
 }
