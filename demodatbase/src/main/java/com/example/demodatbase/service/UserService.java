@@ -3,6 +3,8 @@ package com.example.demodatbase.service;
 import com.example.demodatbase.dto.request.UserCreationRequest;
 import com.example.demodatbase.dto.request.UserUpdateRequest;
 import com.example.demodatbase.entity.User;
+import com.example.demodatbase.exception.AppException;
+import com.example.demodatbase.exception.ErrorCode;
 import com.example.demodatbase.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,10 @@ public class UserService {
 
     public User createUser(UserCreationRequest request){
         User user = new User();
+        if (userRepository.existsByUsername(request.getUsername()))
+            throw new AppException(ErrorCode.USER_EXISTED);
+
+
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());
         user.setFirstname(request.getFirstname());

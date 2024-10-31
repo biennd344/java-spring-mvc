@@ -1,11 +1,14 @@
 package com.example.demodatbase.controller;
 
 
+import com.example.demodatbase.dto.request.ApiResponse;
 import com.example.demodatbase.dto.request.UserCreationRequest;
 import com.example.demodatbase.dto.request.UserUpdateRequest;
 import com.example.demodatbase.entity.User;
 import com.example.demodatbase.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +22,10 @@ public class UserController {
 
 //    @PostMapping("/users")
     @PostMapping
-    User create(@RequestBody UserCreationRequest request){
-        return  userService.createUser(request);
+    ApiResponse<User> createUser(@RequestBody @Valid UserCreationRequest request){
+        ApiResponse<User> apiResponse = new ApiResponse<>();
+        apiResponse.setResult(userService.createUser(request));
+        return  apiResponse;
     }
 //    @GetMapping("/users")
     @GetMapping

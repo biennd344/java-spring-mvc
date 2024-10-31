@@ -1,12 +1,20 @@
 package com.example.demodatbase.dto.request;
 
+import com.example.demodatbase.exception.ErrorCode;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class UserCreationRequest {
+    @Size(min = 3, message = "USERNAME_INVALID")
     private String username;
+
+    @Size(min = 8, message = "INVALID_PASSWORD")
     private String password;
     private String firstname;
     private String lastName;
+
+
     private LocalDate dob;
 
     public String getUsername() {
